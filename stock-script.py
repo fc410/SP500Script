@@ -41,6 +41,9 @@ def save_sp500_tickers():
     print(tickers)
     return tickers
 
+#This function will take all the data from the s&p500 using
+#the yahoo finance api and will store the data into an excel 
+#file in the folder stock_dfs
 def get_data_from_yahoo(reload_sp500=False):
     if reload_sp500:
         tickers = save_sp500_tickers()
