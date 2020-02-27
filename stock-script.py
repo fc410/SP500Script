@@ -41,4 +41,29 @@ def save_sp500_tickers():
     print(tickers)
     return tickers
 
-#save_sp500_tickers()
+def get_data_from_yahoo(reload_sp500=False):
+    if reload_sp500:
+        tickers = save_sp500_tickers()
+
+    else:
+        with open("sp500tickers.pickle", "rb") as f:
+            tickers = pickle.load(f)
+
+    if not os.path.exists('stock_dfs'):
+        os.makedirs('stock_dfs')
+
+    start = dt.datetime(2019, 6, 8)
+    end = dt.datetime.now()
+
+    for ticker in tickers:
+        print(ticker)
+        if not os.path.exists('stock_dfs/{}.csv'.format(ticker)):
+            df = pdr.get_data_yahoo(ticker, start, end)
+            df.reset_index(inplace=True)
+            df.set_index("Date", inplace=True)
+            df.to_csv('stock_dfs/{}.csv'.format(ticker))
+        else:
+            print('Already have {}'.format(ticker))
+
+save_sp500_tickers()
+get_data_from_yahoo()
