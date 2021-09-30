@@ -6,7 +6,7 @@ For this project I created a script where I get a list of the S&P 500 from the W
 <h2> Built With:</h2>
 <ul>
   <li> Python </li>
-  <li> Finance, matplotlib, and pandas library</li>
+  <li> Randas_datareader,bs4, pickle, requests, os, datetime library</li>
   <li> WIKI API </li>
   <li> Yahoo Finance API </li>
 </ul
