@@ -1,22 +1,15 @@
-#pip install beautifulsoup4
-#pip install XlsxWriter
-#pip install selenium
-#pip install phantomjs
-#pip install matplotlib
-#pip install mpl_finance
-#pip install pandas
-#pip install pandas-datareader
-#pip install yfinance
-#pip install fix_yahoo_finance
+# pip install beautifulsoup4
+# pip install XlsxWriter
+# pip install pandas
+# pip install pandas-datareader
+
 
 import bs4 as bs
 import datetime as dt
 import os
-import pandas as pd
 from pandas_datareader import data as pdr
 import pickle
 import requests
-import fix_yahoo_finance as yf
 
 
 def save_sp500_tickers():
@@ -90,6 +83,7 @@ def get_data_from_yahoo(reload_sp500=False):
         else:
             # if the file already exists message the user that the file is created already
             print('Already have {}'.format(ticker))
+
 
 # Run both functions
 save_sp500_tickers()
